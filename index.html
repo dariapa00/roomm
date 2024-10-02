@@ -3,9 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Room Game</title>
+    <style>
+        /* 전체 화면을 중앙에 정렬하는 기본 설정 */
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #eaeaea; /* 배경색 */
+        }
+
+        /* 방의 전체 레이아웃 설정 */
+        #room {
+            width: 600px;
+            height: 400px;
+            background-image: url('room-background.jpg'); /* 배경 이미지 */
+            background-size: cover;
+            background-position: center;
+            position: relative; /* 절대 위치를 설정하기 위한 부모 요소 */
+        }
+
+        /* 아이템(침대와 램프)에 대한 스타일 설정 */
+        .item {
+            position: absolute; /* 아이템을 원하는 곳에 배치하기 위해 절대 위치 사용 */
+            cursor: pointer; /* 클릭할 수 있음을 표시하는 커서 */
+        }
+
+        /* 침대 위치 설정 */
+        #bed {
+            left: 100px;
+            bottom: 50px;
+            width: 150px;
+        }
+
+        /* 램프 위치 설정 */
+        #lamp {
+            right: 50px;
+            bottom: 100px;
+            width: 50px;
+        }
+    </style>
 </head>
 <body>
-    <h1>gg</h1>
+    <!-- 방을 그리는 컨테이너 -->
+    <div id="room">
+        <!-- 침대 이미지 -->
+        <img src="bed.png" id="bed" class="item">
+        <!-- 램프 이미지 -->
+        <img src="lamp.png" id="lamp" class="item">
+    </div>
+
+    <script>
+        // 램프를 클릭했을 때 실행되는 이벤트
+        document.getElementById('lamp').addEventListener('click', function() {
+            alert('You clicked the lamp! It\'s now on!');
+        });
+
+        // 침대를 클릭했을 때 실행되는 이벤트
+        document.getElementById('bed').addEventListener('click', function() {
+            alert('You clicked the bed! You feel relaxed.');
+        });
+    </script>
 </body>
 </html>
