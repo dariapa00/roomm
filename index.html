@@ -12,7 +12,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #eaeaea; /* 배경색 */
+            background-color: white; /* 초기 배경색: 하얀색 (램프가 켜짐 상태) */
         }
 
         /* 방의 전체 레이아웃 설정 */
@@ -52,18 +52,25 @@
         <!-- 침대 이미지 -->
         <img src="bed.png" id="bed" class="item">
         <!-- 램프 이미지 -->
-        <img src="lamp.png" id="lamp" class="item">
+        <img src="lamp.png" id="lamp" class="item"> <!-- lamp(켜짐) 이미지 -->
     </div>
 
     <script>
-        // 램프를 클릭했을 때 실행되는 이벤트
-        document.getElementById('lamp').addEventListener('click', function() {
-            alert('You clicked the lamp! It\'s now on!');
-        });
+        // 상태 변수를 사용하여 램프가 켜져 있는지 꺼져 있는지 추적
+        let isLampOn = true; // 기본적으로 램프는 켜짐 상태
 
-        // 침대를 클릭했을 때 실행되는 이벤트
-        document.getElementById('bed').addEventListener('click', function() {
-            alert('You clicked the bed! You feel relaxed.');
+        // 램프 클릭 이벤트 처리
+        document.getElementById('lamp').addEventListener('click', function() {
+            // 만약 램프가 켜져 있다면, 꺼진 상태로 전환
+            if (isLampOn) {
+                document.body.style.backgroundColor = 'gray'; // 배경을 회색으로 변경
+                document.getElementById('lamp').src = 'lamp(2).png'; // 꺼진 램프 이미지로 변경
+                isLampOn = false; // 상태를 꺼짐으로 변경
+            } else {
+                document.body.style.backgroundColor = 'white'; // 배경을 하얀색으로 변경
+                document.getElementById('lamp').src = 'lamp.png'; // 켜진 램프 이미지로 변경
+                isLampOn = true; // 상태를 켜짐으로 변경
+            }
         });
     </script>
 </body>
